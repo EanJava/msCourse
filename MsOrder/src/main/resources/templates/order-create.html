@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create order</title>
+</head>
+<body>
+<form action="#" th:action="@{/order-create}" th:object="${order}" method="post">
+    <label for="nameOrder">Name Order</label>
+    <input type="text" th:field="*{nameOrder}" id="nameOrder" placeholder="Name Order">
+    <label for="amountOrder">Amount Order</label>
+    <input type="text" th:field="*{amountOrder}" id="amountOrder" placeholder="Amount Order">
+    <label for="client_id">Client Id</label>
+    <input type="text" th:field="*{clientId}" id="client_id" placeholder="Id Client">
+    <input type="submit" value="Create order">
+</form>
+</body>
+</html>

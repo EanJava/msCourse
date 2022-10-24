@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>orders</title>
+</head>
+<body>
+<div th:switch="${orders}">
+    <h2 th:case="null">No orders found!</h2>
+    <div th:case="*">
+        <h2>orders</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name Order</th>
+                <th>Amount Order</th>
+                <th>Client ID</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="order : ${orders}">
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.nameOrder}"></td>
+                <td th:text="${order.amountOrder}"></td>
+                <td th:text="${order.ClientID}"></td>
+                <td><a th:href="@{order-update/{id}(id=${order.id})}">Edit</a></td>
+                <td><a th:href="@{order-delete/{id}(id=${order.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/order-create">Create order</a></p>
+</div>
+</body>
+</html>
